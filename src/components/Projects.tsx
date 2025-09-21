@@ -5,7 +5,7 @@ export default function Projects() {
   const projects = [
     {
       title: 'SamvaadAI - Multilingual Chatbot',
-      description: 'A Flask-based multilingual chatbot powered by Gemini API, specifically designed to handle NIT Jalandhar queries. Features intelligent conversation handling and multi-language support.',
+      description: 'A Flask-based multilingual chatbot powered by Gemini API, specifically designed to handle NIT Jalandhar queries. Features intelligent conversation handling and multi-language support. 🏆 Selected in NIT Jalandhar SIH 2025 Internal Round.',
       tech: ['Python', 'Flask', 'Gemini API', 'HTML/CSS', 'JavaScript'],
       github: 'https://github.com/adityaseth07/samvaadAI',
       icon: MessageCircle,

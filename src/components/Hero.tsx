@@ -19,7 +19,7 @@ export default function Hero() {
                 y1="50"
                 x2={x2}
                 y2={y2}
-                stroke="#3b82f6"
+                stroke="#e5e7eb"
                 strokeWidth="0.3"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
@@ -36,7 +36,7 @@ export default function Hero() {
               cy="50"
               r={radius}
               fill="none"
-              stroke="#8b5cf6"
+              stroke="#d1d5db"
               strokeWidth="0.2"
               initial={{ pathLength: 0, rotate: 0 }}
               animate={{ pathLength: 1, rotate: 360 }}
@@ -59,7 +59,7 @@ export default function Hero() {
                 cx={x}
                 cy={y}
                 r="0.4"
-                fill="#06b6d4"
+                fill="#f9fafb"
                 initial={{ scale: 0 }}
                 animate={{ scale: [0, 1, 0] }}
                 transition={{ 
