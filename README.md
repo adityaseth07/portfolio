@@ -96,7 +96,7 @@ src/
 
 ## 📱 Contact
 
-- **Email:** adityaseth2203@gmail.com
+- **Email:** adityaseth@zohomail.in
 - **Phone:** +91 9465263180
 - **Location:** Jalandhar, Punjab
 - **GitHub:** [@adityaseth07](https://github.com/adityaseth07)
