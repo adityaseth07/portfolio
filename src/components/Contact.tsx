@@ -6,8 +6,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: 'Email',
-      value: 'adityaseth2203@gmail.com',
-      href: 'mailto:adityaseth2203@gmail.com',
+      value: 'adityaseth@zohomail.in',
+      href: 'mailto:adityaseth@zohomail.in',
       color: 'from-red-500 to-pink-500',
       bgColor: 'bg-red-500/10'
     },
@@ -72,7 +72,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateY: 5,
                 transition: { duration: 0.2 }
@@ -82,7 +82,7 @@ export default function Contact() {
             >
               {/* Gradient overlay on hover */}
               <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-              
+
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
@@ -90,12 +90,12 @@ export default function Contact() {
               >
                 <info.icon className="text-white" size={32} />
               </motion.div>
-              
+
               <h3 className="text-xl font-bold mb-2 text-white">{info.title}</h3>
               <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
                 {info.value}
               </p>
-              
+
               {/* Hover effect arrow */}
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
@@ -121,7 +121,7 @@ export default function Contact() {
               <span className="text-lg text-gray-300">Always excited to discuss new opportunities</span>
             </div>
             <p className="text-gray-400">
-              Whether it's data analysis, web development, or just a friendly chat about technology - 
+              Whether it's data analysis, web development, or just a friendly chat about technology -
               I'm just one click away!
             </p>
           </div>

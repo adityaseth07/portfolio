@@ -23,7 +23,7 @@ function App() {
         <Projects />
         <Contact />
       </motion.main>
-      
+
       {/* Footer */}
       <footer className="py-8 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +45,7 @@ function App() {
               viewport={{ once: true }}
               className="text-gray-500 text-sm"
             >
-              © 2025 All rights reserved
+              © 2025 Aditya Seth. All rights reserved
             </motion.p>
           </div>
         </div>

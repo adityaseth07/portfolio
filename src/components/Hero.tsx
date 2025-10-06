@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react'
+import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react'
 
 export default function Hero() {
   return (
@@ -27,7 +27,7 @@ export default function Hero() {
               />
             )
           })}
-          
+
           {/* Concentric circles */}
           {[15, 25, 35, 45].map((radius, i) => (
             <motion.circle
@@ -40,13 +40,13 @@ export default function Hero() {
               strokeWidth="0.2"
               initial={{ pathLength: 0, rotate: 0 }}
               animate={{ pathLength: 1, rotate: 360 }}
-              transition={{ 
+              transition={{
                 pathLength: { duration: 1.5, delay: i * 0.3 },
                 rotate: { duration: 20, repeat: Infinity, ease: "linear" }
               }}
             />
           ))}
-          
+
           {/* Connection points */}
           {[...Array(12)].map((_, i) => {
             const angle = (i * 30) * (Math.PI / 180)
@@ -62,8 +62,8 @@ export default function Hero() {
                 fill="#f9fafb"
                 initial={{ scale: 0 }}
                 animate={{ scale: [0, 1, 0] }}
-                transition={{ 
-                  duration: 2, 
+                transition={{
+                  duration: 2,
                   delay: i * 0.1,
                   repeat: Infinity,
                   repeatDelay: 3
@@ -111,7 +111,7 @@ export default function Hero() {
             {[
               { icon: Github, href: 'https://github.com/adityaseth07', label: 'GitHub' },
               { icon: Linkedin, href: 'https://linkedin.com/in/adityaseth007', label: 'LinkedIn' },
-              { icon: Mail, href: 'mailto:adityaseth2203@gmail.com', label: 'Email' },
+              { icon: Mail, href: 'mailto:adityaseth@zohomail.in', label: 'Email' },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}
@@ -143,17 +143,19 @@ export default function Hero() {
               View My Work
             </motion.a>
             <motion.a
-              href="#contact"
+              href="/Resume.pdf"
+              download="Aditya_Seth_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 glass hover:bg-white/10 rounded-lg font-semibold transition-colors"
+              className="px-8 py-3 glass hover:bg-white/10 rounded-lg font-semibold transition-colors inline-flex items-center justify-center gap-2"
             >
-              Get In Touch
+              <Download size={18} />
+              Download Resume
             </motion.a>
           </motion.div>
         </motion.div>
       </div>
-      
+
       {/* Arrow positioned at bottom of section */}
       <motion.div
         initial={{ opacity: 0 }}

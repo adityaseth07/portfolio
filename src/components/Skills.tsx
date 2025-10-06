@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Code, Database, BarChart3, PieChart, TrendingUp, Globe, Terminal, Cpu } from 'lucide-react'
+import { PieChart, TrendingUp, Terminal, LucideIcon } from 'lucide-react'
 
 export default function Skills() {
   const [flippedCards, setFlippedCards] = useState<number[]>([])
@@ -16,57 +16,136 @@ export default function Skills() {
   const skills = [
     {
       name: 'Python',
-      icon: Code,
-      color: 'bg-yellow-500',
+      iconPath: '/python-svgrepo-com.svg',
+      bgColor: 'from-blue-50 to-yellow-50',
+      borderColor: 'border-blue-200',
+      shadowColor: 'shadow-blue-100',
       description: 'Used extensively in SamvaadAI chatbot for backend logic, API integration with Gemini, and data processing. Core language for all my data analysis and web development projects.',
       level: 95
     },
     {
-      name: 'SQL',
-      icon: Database,
-      color: 'bg-blue-500',
-      description: 'Essential for database operations and complex queries. Planning to integrate with future projects for data storage and retrieval in web applications.',
+      name: 'JavaScript',
+      iconPath: '/js-official-svgrepo-com.svg',
+      bgColor: 'from-yellow-50 to-amber-50',
+      borderColor: 'border-yellow-200',
+      shadowColor: 'shadow-yellow-100',
+      description: 'Dynamic programming language for web development. Used for interactive features, DOM manipulation, and modern ES6+ features.',
+      level: 85
+    },
+    {
+      name: 'TypeScript',
+      iconPath: '/typescript-svgrepo-com.svg',
+      bgColor: 'from-blue-50 to-indigo-50',
+      borderColor: 'border-blue-200',
+      shadowColor: 'shadow-blue-100',
+      description: 'Strongly typed superset of JavaScript. Provides better code quality, error detection, and enhanced development experience for large applications.',
+      level: 80
+    },
+    {
+      name: 'HTML',
+      iconPath: '/html-5-svgrepo-com.svg',
+      bgColor: 'from-orange-50 to-red-50',
+      borderColor: 'border-orange-200',
+      shadowColor: 'shadow-orange-100',
+      description: 'Foundation of web development. Used to structure web pages and create semantic markup for better accessibility and SEO optimization.',
+      level: 90
+    },
+    {
+      name: 'Tailwind CSS',
+      iconPath: '/tailwind-css-svgrepo-com.svg',
+      bgColor: 'from-cyan-50 to-teal-50',
+      borderColor: 'border-cyan-200',
+      shadowColor: 'shadow-cyan-100',
+      description: 'Utility-first CSS framework used in this portfolio. Enables rapid UI development with consistent design system and responsive utilities.',
       level: 90
     },
     {
       name: 'Flask',
-      icon: Globe,
-      color: 'bg-green-500',
+      iconPath: '/flask.svg',
+      bgColor: 'from-gray-50 to-slate-50',
+      borderColor: 'border-gray-200',
+      shadowColor: 'shadow-gray-100',
       description: 'Used to build the web framework for SamvaadAI chatbot. Created RESTful APIs, handled routing, and integrated frontend with backend services.',
       level: 80
     },
     {
+      name: 'MongoDB',
+      iconPath: '/mongo.svg',
+      bgColor: 'from-green-50 to-emerald-50',
+      borderColor: 'border-green-200',
+      shadowColor: 'shadow-green-100',
+      description: 'NoSQL database for modern applications. Excellent for storing flexible data structures and scaling applications with complex data requirements.',
+      level: 75
+    },
+    {
+      name: 'Docker',
+      iconPath: '/docker.svg',
+      bgColor: 'from-blue-50 to-sky-50',
+      borderColor: 'border-blue-200',
+      shadowColor: 'shadow-blue-100',
+      description: 'Containerization platform for consistent deployment environments. Used for packaging applications and ensuring consistent behavior across different systems.',
+      level: 70
+    },
+    {
       name: 'Pandas',
-      icon: BarChart3,
-      color: 'bg-purple-500',
+      iconPath: '/pandas.svg',
+      bgColor: 'from-indigo-50 to-purple-50',
+      borderColor: 'border-indigo-200',
+      shadowColor: 'shadow-indigo-100',
       description: 'Powerful library for data manipulation and analysis. Perfect for cleaning datasets, performing data transformations, and preparing data for visualization.',
       level: 90
     },
     {
       name: 'NumPy',
-      icon: Cpu,
-      color: 'bg-red-500',
+      iconPath: '/numpy.svg',
+      bgColor: 'from-blue-50 to-cyan-50',
+      borderColor: 'border-blue-200',
+      shadowColor: 'shadow-blue-100',
       description: 'Foundation for numerical computing in Python. Essential for mathematical operations, array manipulations, and scientific computing tasks.',
+      level: 85
+    },
+    {
+      name: 'PostgreSQL',
+      iconPath: '/postgres.svg',
+      bgColor: 'from-blue-50 to-indigo-50',
+      borderColor: 'border-blue-200',
+      shadowColor: 'shadow-blue-100',
+      description: 'Advanced relational database system with powerful features for complex queries, data integrity, and scalability in enterprise applications.',
+      level: 80
+    },
+    {
+      name: 'CSS',
+      iconPath: '/css.svg',
+      bgColor: 'from-blue-50 to-indigo-50',
+      borderColor: 'border-blue-200',
+      shadowColor: 'shadow-blue-100',
+      description: 'Styling language for creating beautiful and responsive web interfaces. Experienced with modern CSS features, animations, and responsive design.',
       level: 85
     },
     {
       name: 'Matplotlib',
       icon: PieChart,
-      color: 'bg-orange-500',
+      bgColor: 'from-orange-50 to-amber-50',
+      borderColor: 'border-orange-200',
+      shadowColor: 'shadow-orange-100',
       description: 'Primary plotting library for creating static, animated, and interactive visualizations. Great for generating publication-quality charts and graphs.',
       level: 85
     },
     {
       name: 'Seaborn',
       icon: TrendingUp,
-      color: 'bg-teal-500',
+      bgColor: 'from-teal-50 to-cyan-50',
+      borderColor: 'border-teal-200',
+      shadowColor: 'shadow-teal-100',
       description: 'Statistical data visualization library built on matplotlib. Excellent for creating beautiful and informative statistical graphics with minimal code.',
       level: 85
     },
     {
       name: 'Linux',
       icon: Terminal,
-      color: 'bg-gray-600',
+      bgColor: 'from-gray-50 to-zinc-50',
+      borderColor: 'border-gray-200',
+      shadowColor: 'shadow-gray-100',
       description: 'Used Linux environment for SamvaadAI development and deployment. Comfortable with command line operations, system administration, and development workflows.',
       level: 75
     }
@@ -86,54 +165,71 @@ export default function Skills() {
             My <span className="gradient-text">Skills</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
-            Specialized in data analysis, statistical computing, and Python development
+            Full-stack development skills spanning data analysis, web technologies, and modern development tools
           </p>
           <p className="text-sm text-blue-400 animate-pulse">✨ Tap cards to flip and see details ✨</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative h-48 cursor-pointer"
-              onClick={() => toggleFlip(index)}
-            >
-              <div
-                className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${
-                  flippedCards.includes(index) ? 'rotate-y-180' : ''
-                }`}
-                style={{ transformStyle: 'preserve-3d' }}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {skills.map((skill, index) => {
+            const IconComponent = skill.icon as LucideIcon;
+            return (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.5, delay: index * 0.1, hover: { duration: 0.15 } }}
+                viewport={{ once: true }}
+                className="relative h-48 cursor-pointer group"
+                onClick={() => toggleFlip(index)}
               >
-                {/* Front Side */}
-                <div className={`absolute inset-0 w-full h-full backface-hidden glass p-6 rounded-2xl ${skill.color} bg-opacity-20 border-2 border-opacity-30`}
-                     style={{ borderColor: skill.color.replace('bg-', '').replace('-500', '') }}>
-                  <div className="flex flex-col items-center justify-center h-full text-center">
-                    <div className={`p-4 rounded-full ${skill.color} mb-4`}>
-                      <skill.icon className="text-white" size={32} />
+                <div
+                  className={`absolute inset-0 w-full h-full transition-transform duration-700 preserve-3d ${
+                    flippedCards.includes(index) ? 'rotate-y-180' : ''
+                  }`}
+                  style={{ transformStyle: 'preserve-3d' }}
+                >
+                  {/* Front Side */}
+                  <div className={`absolute inset-0 w-full h-full backface-hidden bg-gradient-to-br ${skill.bgColor} backdrop-blur-sm border-2 ${skill.borderColor} rounded-2xl p-6 ${skill.shadowColor} shadow-lg group-hover:shadow-xl transition-all duration-150`}>
+                    <div className="flex flex-col items-center justify-center h-full text-center">
+                      <div className="w-16 h-16 mb-4 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-xl shadow-md">
+                        {skill.iconPath ? (
+                          <img 
+                            src={skill.iconPath} 
+                            alt={skill.name}
+                            className="w-10 h-10 object-contain"
+                          />
+                        ) : (
+                          <IconComponent className="text-gray-700" size={28} />
+                        )}
+                      </div>
+                      <h3 className="text-lg font-bold text-gray-800">{skill.name}</h3>
                     </div>
-                    <h3 className="text-xl font-bold">{skill.name}</h3>
                   </div>
-                </div>
 
-                {/* Back Side */}
-                <div className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 glass p-4 rounded-2xl ${skill.color} bg-opacity-20 border-2 border-opacity-30 flex items-center justify-center overflow-hidden`}
-                     style={{ borderColor: skill.color.replace('bg-', '').replace('-500', '') }}>
-                  <div className="text-center h-full flex flex-col justify-center">
-                    <div className={`p-2 rounded-full ${skill.color} mx-auto mb-2`}>
-                      <skill.icon className="text-white" size={20} />
+                  {/* Back Side */}
+                  <div className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br ${skill.bgColor} backdrop-blur-sm border-2 ${skill.borderColor} rounded-2xl p-4 ${skill.shadowColor} shadow-lg flex items-center justify-center overflow-hidden`}>
+                    <div className="text-center h-full flex flex-col justify-center">
+                      <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-lg shadow-md">
+                        {skill.iconPath ? (
+                          <img 
+                            src={skill.iconPath} 
+                            alt={skill.name}
+                            className="w-7 h-7 object-contain"
+                          />
+                        ) : (
+                          <IconComponent className="text-gray-700" size={20} />
+                        )}
+                      </div>
+                      <h3 className="text-sm font-bold mb-2 text-gray-800">{skill.name}</h3>
+                      <p className="text-gray-700 text-xs leading-tight overflow-y-auto max-h-24">{skill.description}</p>
                     </div>
-                    <h3 className="text-sm font-bold mb-2">{skill.name}</h3>
-                    <p className="text-gray-300 text-xs leading-tight overflow-y-auto max-h-24">{skill.description}</p>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

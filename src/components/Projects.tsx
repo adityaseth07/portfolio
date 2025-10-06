@@ -4,9 +4,9 @@ import { Github, MessageCircle, Clock } from 'lucide-react'
 export default function Projects() {
   const projects = [
     {
-      title: 'SamvaadAI - Multilingual Chatbot',
-      description: 'A Flask-based multilingual chatbot powered by Gemini API, specifically designed to handle NIT Jalandhar queries. Features intelligent conversation handling and multi-language support. 🏆 Selected in NIT Jalandhar SIH 2025 Internal Round.',
-      tech: ['Python', 'Flask', 'Gemini API', 'HTML/CSS', 'JavaScript'],
+      title: 'Raj Siksha Mitra - AI Educational Assistant',
+      description: 'Developed as the sole developer in a 6-member team for Smart India Hackathon 2025 (Internal Round), advancing to the second round. Built an AI-powered FAQ chatbot for multiple educational institutes in Rajasthan using Google Gemini API, Flask backend, and PostgreSQL database. Features multilingual support (English, Hindi, Rajasthani), automated data fetching from websites & social media, speech-to-text integration, and platform-agnostic scalable design.',
+      tech: ['Python', 'Flask', 'Google Gemini API', 'PostgreSQL', 'Speech-to-Text', 'Multilingual AI'],
       github: 'https://github.com/adityaseth07/samvaadAI',
       icon: MessageCircle,
       gradient: 'from-blue-500 to-purple-600'
