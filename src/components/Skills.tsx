@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { PieChart, TrendingUp, Terminal, LucideIcon } from 'lucide-react'
+import { PieChart, TrendingUp, LucideIcon } from 'lucide-react'
 
 export default function Skills() {
   const [flippedCards, setFlippedCards] = useState<number[]>([])
