@@ -32,15 +32,7 @@ export default function Skills() {
       description: 'Dynamic programming language for web development. Used for interactive features, DOM manipulation, and modern ES6+ features.',
       level: 85
     },
-    {
-      name: 'TypeScript',
-      iconPath: '/typescript-svgrepo-com.svg',
-      bgColor: 'from-blue-50 to-indigo-50',
-      borderColor: 'border-blue-200',
-      shadowColor: 'shadow-blue-100',
-      description: 'Strongly typed superset of JavaScript. Provides better code quality, error detection, and enhanced development experience for large applications.',
-      level: 80
-    },
+
     {
       name: 'HTML',
       iconPath: '/html-5-svgrepo-com.svg',
@@ -50,15 +42,7 @@ export default function Skills() {
       description: 'Foundation of web development. Used to structure web pages and create semantic markup for better accessibility and SEO optimization.',
       level: 90
     },
-    {
-      name: 'Tailwind CSS',
-      iconPath: '/tailwind-css-svgrepo-com.svg',
-      bgColor: 'from-cyan-50 to-teal-50',
-      borderColor: 'border-cyan-200',
-      shadowColor: 'shadow-cyan-100',
-      description: 'Utility-first CSS framework used in this portfolio. Enables rapid UI development with consistent design system and responsive utilities.',
-      level: 90
-    },
+
     {
       name: 'Flask',
       iconPath: '/flask.svg',
@@ -68,23 +52,15 @@ export default function Skills() {
       description: 'Used to build the web framework for SamvaadAI chatbot. Created RESTful APIs, handled routing, and integrated frontend with backend services.',
       level: 80
     },
+
     {
-      name: 'MongoDB',
-      iconPath: '/mongo.svg',
+      name: 'Excel',
+      iconPath: '/excel.svg',
       bgColor: 'from-green-50 to-emerald-50',
       borderColor: 'border-green-200',
       shadowColor: 'shadow-green-100',
-      description: 'NoSQL database for modern applications. Excellent for storing flexible data structures and scaling applications with complex data requirements.',
-      level: 75
-    },
-    {
-      name: 'Docker',
-      iconPath: '/docker.svg',
-      bgColor: 'from-blue-50 to-sky-50',
-      borderColor: 'border-blue-200',
-      shadowColor: 'shadow-blue-100',
-      description: 'Containerization platform for consistent deployment environments. Used for packaging applications and ensuring consistent behavior across different systems.',
-      level: 70
+      description: 'Advanced spreadsheet application for data analysis, financial modeling, and business intelligence. Proficient in formulas, pivot tables, and data visualization.',
+      level: 90
     },
     {
       name: 'Pandas',
@@ -141,13 +117,13 @@ export default function Skills() {
       level: 85
     },
     {
-      name: 'Linux',
-      icon: Terminal,
-      bgColor: 'from-gray-50 to-zinc-50',
-      borderColor: 'border-gray-200',
-      shadowColor: 'shadow-gray-100',
-      description: 'Used Linux environment for SamvaadAI development and deployment. Comfortable with command line operations, system administration, and development workflows.',
-      level: 75
+      name: 'Power BI',
+      iconPath: '/powerbi.svg',
+      bgColor: 'from-yellow-50 to-orange-50',
+      borderColor: 'border-yellow-200',
+      shadowColor: 'shadow-yellow-100',
+      description: 'Business intelligence tool for creating interactive dashboards and reports. Expert in data modeling, DAX formulas, and creating compelling data visualizations.',
+      level: 85
     }
   ]
 
