@@ -32,7 +32,6 @@ export default function Skills() {
       description: 'Dynamic programming language for web development. Used for interactive features, DOM manipulation, and modern ES6+ features.',
       level: 85
     },
-
     {
       name: 'HTML',
       iconPath: '/html-5-svgrepo-com.svg',
@@ -42,7 +41,6 @@ export default function Skills() {
       description: 'Foundation of web development. Used to structure web pages and create semantic markup for better accessibility and SEO optimization.',
       level: 90
     },
-
     {
       name: 'Flask',
       iconPath: '/flask.svg',
@@ -52,7 +50,6 @@ export default function Skills() {
       description: 'Used to build the web framework for SamvaadAI chatbot. Created RESTful APIs, handled routing, and integrated frontend with backend services.',
       level: 80
     },
-
     {
       name: 'Excel',
       iconPath: '/excel.svg',
