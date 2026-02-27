@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Github, MessageCircle, Clock } from 'lucide-react'
+import { Github, MessageCircle, Clock, BarChart3 } from 'lucide-react'
 
 export default function Projects() {
   const projects = [
@@ -10,6 +10,14 @@ export default function Projects() {
       github: 'https://github.com/adityaseth07/samvaadAI',
       icon: MessageCircle,
       gradient: 'from-blue-500 to-purple-600'
+    },
+    {
+      title: 'Meta Stock Risk Analysis',
+      description: 'Data analysis project that studies Meta Platforms (Facebook) historical stock performance from 2012 to 2025, with a focused deep-dive into the 2022 crash period. The analysis evaluates long-term price behavior, crash severity in 2022, volatility changes across years, and risk-adjusted performance using Sharpe Ratio.',
+      tech: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Sharpe Ratio'],
+      github: 'https://github.com/adityaseth07/meta-stock-risk-analysis',
+      icon: BarChart3,
+      gradient: 'from-emerald-500 to-teal-600'
     },
     {
       title: 'More Projects Coming Soon',
