@@ -1,131 +1,239 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle, Send, Heart } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Mail, Github, Linkedin, MapPin } from 'lucide-react'
+
+const FONT_SERIF = '"Playfair Display", Georgia, serif'
+const FONT_MONO = '"DM Mono", monospace'
+const FONT_SANS = '"DM Sans", sans-serif'
 
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      value: 'adityaseth@zohomail.in',
-      href: 'mailto:adityaseth@zohomail.in',
-      color: 'from-red-500 to-pink-500',
-      bgColor: 'bg-red-500/10'
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      value: '+91 9465263180',
-      href: 'tel:+919465263180',
-      color: 'from-green-500 to-emerald-500',
-      bgColor: 'bg-green-500/10'
-    },
-    {
-      icon: MapPin,
-      title: 'Location',
-      value: 'Jalandhar, Punjab',
-      href: 'https://maps.google.com/?q=NIT+Jalandhar',
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'bg-blue-500/10'
+  const [isMobile, setIsMobile] = useState(false)
+  const [copyToast, setCopyToast] = useState<string | null>(null)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText('adityaseth@zohomail.in')
+      setCopyToast('Email copied!')
+      setTimeout(() => setCopyToast(null), 1600)
+    } catch {
+      setCopyToast('Could not copy')
+      setTimeout(() => setCopyToast(null), 1800)
     }
+  }
+
+  const links = [
+    { label: 'Email', value: 'adityaseth@zohomail.in', href: 'mailto:adityaseth@zohomail.in', icon: <Mail size={14} /> },
+    { label: 'GitHub', value: 'github.com/adityaseth07', href: 'https://github.com/adityaseth07', icon: <Github size={14} /> },
+    { label: 'LinkedIn', value: 'linkedin.com/in/adityaseth007', href: 'https://linkedin.com/in/adityaseth007', icon: <Linkedin size={14} /> },
+    { label: 'Location', value: 'Jalandhar, India', href: 'https://maps.google.com/?q=Jalandhar,India', icon: <MapPin size={14} /> },
   ]
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-500 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-pink-500 rounded-full blur-3xl"></div>
+    <section
+      id="contact"
+      style={{
+        padding: isMobile ? '4rem 4vw 3rem' : '4rem 6vw 3rem',
+        background: 'transparent',
+        position: 'relative',
+      }}
+    >
+      {/* Section header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: isMobile ? '2rem' : '5rem' }}>
+        <span style={{ fontFamily: FONT_MONO, fontSize: '0.62rem', letterSpacing: '0.2em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase' }}>
+          Contact
+        </span>
+        <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.07)' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+      <div style={{ overflow: 'hidden', marginBottom: isMobile ? '2rem' : '3rem' }}>
+        <motion.h2
+          initial={{ y: '100%' }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          style={{
+            fontFamily: FONT_SERIF,
+            fontSize: isMobile ? 'clamp(1.8rem, 7vw, 4rem)' : 'clamp(2.6rem, 4.5vw, 4rem)',
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: '0.02em',
+            color: '#fafaf8',
+            margin: 0,
+          }}
         >
+          Let's connect.
+        </motion.h2>
+      </div>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? '3rem' : '8vw',
+          alignItems: 'start',
+        }}
+      >
+        {/* LEFT - description */}
+        <div>
+          {/* Status badge */}
           <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            className="inline-block mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '10px 16px',
+              border: '1px solid rgba(74,222,128,0.35)',
+              borderRadius: '4px',
+              marginBottom: '1.5rem',
+              background: 'rgba(74,222,128,0.06)',
+            }}
           >
-            <MessageCircle className="w-16 h-16 text-blue-400" />
-          </motion.div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to collaborate on your next data project? Let's chat!
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {contactInfo.map((info, index) => (
-            <motion.a
-              key={info.title}
-              href={info.href}
-              target={info.title === 'Location' ? '_blank' : '_self'}
-              rel={info.title === 'Location' ? 'noopener noreferrer' : ''}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.05,
-                rotateY: 5,
-                transition: { duration: 0.2 }
+            <div
+              style={{
+                width: '7px',
+                height: '7px',
+                borderRadius: '50%',
+                background: '#4ade80',
+                boxShadow: '0 0 8px #4ade80',
+                animation: 'pulse 2s infinite',
+                flexShrink: 0,
               }}
-              whileTap={{ scale: 0.95 }}
-              className={`group relative overflow-hidden rounded-2xl p-8 text-center ${info.bgColor} backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300`}
-            >
-              {/* Gradient overlay on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+            />
+            <span style={{ fontFamily: FONT_MONO, fontSize: '0.55rem', letterSpacing: '0.2em', color: 'rgba(74,222,128,0.9)', textTransform: 'uppercase' }}>
+              Always Open to Opportunities
+            </span>
+          </motion.div>
 
-              <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.6 }}
-                className={`inline-flex p-4 rounded-full bg-gradient-to-br ${info.color} mb-4 shadow-lg`}
-              >
-                <info.icon className="text-white" size={32} />
-              </motion.div>
-
-              <h3 className="text-xl font-bold mb-2 text-white">{info.title}</h3>
-              <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                {info.value}
-              </p>
-
-              {/* Hover effect arrow */}
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileHover={{ opacity: 1, x: 0 }}
-                className="absolute top-4 right-4"
-              >
-                <Send className="w-4 h-4 text-gray-400 group-hover:text-white" />
-              </motion.div>
-            </motion.a>
-          ))}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            style={{
+              fontFamily: FONT_SANS,
+              fontSize: '1rem',
+              lineHeight: 1.7,
+              color: 'rgba(255,255,255,0.6)',
+              maxWidth: '400px',
+              textAlign: 'justify',
+              textJustify: 'inter-word',
+            }}
+          >
+            Whether it's a data engineering challenge, an interesting project collaboration,
+            or just a conversation about building better data systems — I'm always up for it.
+            Currently exploring the intersection of geospatial ML, pipeline architecture,
+            and making data actually useful at scale.
+          </motion.p>
         </div>
 
+        {/* RIGHT - contact links */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          transition={{ delay: 0.25 }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '0' }}
         >
-          <div className="glass p-6 rounded-2xl max-w-2xl mx-auto">
-            <div className="flex items-center justify-center mb-4">
-              <Heart className="w-6 h-6 text-red-400 mr-2" />
-              <span className="text-lg text-gray-300">Always excited to discuss new opportunities</span>
-            </div>
-            <p className="text-gray-400">
-              Whether it's data analysis, web development, or just a friendly chat about technology -
-              I'm just one click away!
-            </p>
-          </div>
+          {links.map(({ label, value, href, icon }) => (
+            <motion.a
+              key={label}
+              href={href}
+              target={href.startsWith('http') ? '_blank' : undefined}
+              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              whileHover={{ x: 4 }}
+              onClick={
+                label === 'Email'
+                  ? (e) => { e.preventDefault(); void copyEmail() }
+                  : undefined
+              }
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem',
+                padding: '1rem 0',
+                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                textDecoration: 'none',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderBottomColor = 'rgba(255,255,255,0.35)'
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderBottomColor = 'rgba(255,255,255,0.05)'
+              }}
+            >
+              <span style={{ color: 'rgba(255,255,255,0.4)', width: '16px' }}>
+                {icon}
+              </span>
+              <div style={{ flex: 1 }}>
+                <p style={{ fontFamily: FONT_MONO, fontSize: '0.58rem', letterSpacing: '0.15em', color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', marginBottom: '2px' }}>
+                  {label}
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <p style={{ fontFamily: FONT_SANS, fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', margin: 0 }}>
+                    {value}
+                  </p>
+                  {label === 'Email' && copyToast && (
+                    <motion.p
+                      initial={{ opacity: 0, x: -6 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0 }}
+                      style={{
+                        fontFamily: FONT_SANS,
+                        fontSize: '0.78rem',
+                        color: '#4ade80',
+                        border: '1px solid rgba(74,222,128,0.35)',
+                        background: 'rgba(74,222,128,0.06)',
+                        borderRadius: '999px',
+                        padding: '4px 10px',
+                        whiteSpace: 'nowrap',
+                        margin: 0,
+                      }}
+                    >
+                      {copyToast}
+                    </motion.p>
+                  )}
+                </div>
+              </div>
+              <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.7rem' }}>
+                ↗
+              </span>
+            </motion.a>
+          ))}
         </motion.div>
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          textAlign: 'center',
+          marginTop: isMobile ? '5rem' : '8rem',
+          paddingTop: '2rem',
+          borderTop: '1px solid rgba(255,255,255,0.07)',
+        }}
+      >
+        <span
+          style={{
+            fontFamily: FONT_MONO,
+            fontSize: '0.6rem',
+            letterSpacing: '0.12em',
+            color: 'rgba(255,255,255,0.5)',
+            textTransform: 'uppercase',
+          }}
+        >
+          © 2026 Aditya Seth • Designed & Built with ♥
+        </span>
       </div>
     </section>
   )

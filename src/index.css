@@ -2,52 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-black text-white;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+/* ═══════════════════════════════════════════
+   HOLOGRAPHIC DARK — ashwingupta.dev style
+   ═══════════════════════════════════════════ */
+
+:root {
+  --room-black: #000000;
+  --holo-text: rgba(249, 246, 238, 0.95);
+  --holo-glow: rgba(167, 226, 255, 0.2);
+}
+
+html, body, #root {
+  height: 100%;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--room-black);
+  color: var(--holo-text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(232, 224, 208, 0.25);
+  color: #fafaf8;
+}
+
+/* ─── Hologram Interface (scroll container) ── */
+.hologram-interface {
+  position: relative;
+  z-index: 3;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: clip;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hologram-interface::-webkit-scrollbar {
+  display: none;
+}
+
+.hologram-content {
+  color: var(--holo-text);
+  text-shadow: 0 0 14px var(--holo-glow);
+}
+
+@media (max-width: 768px) {
+  .hologram-content {
+    text-shadow: 0 0 10px rgba(167, 226, 255, 0.16);
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  }
 }
 
-.gradient-text {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient 15s ease infinite;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.particle {
-  position: absolute;
-  background: #3b82f6;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: float 6s ease-in-out infinite;
-}
-
-.preserve-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
-html {
-  scroll-behavior: smooth;
+/* ─── Pulse animation for status dot ───── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }

@@ -1,55 +1,65 @@
-import { motion } from 'framer-motion'
-import Navbar from './components/Navbar'
+import { useEffect, useRef, useState } from 'react'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
 import Contact from './components/Contact'
-import ParticleBackground from './components/ParticleBackground'
 
 function App() {
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <ParticleBackground />
-      <Navbar />
-      <motion.main
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </motion.main>
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [thumbRatio, setThumbRatio] = useState(0.2)
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-gray-300 mb-2"
-            >
-              Made with <span className="text-red-500 animate-pulse">❤️</span> by{' '}
-              <span className="gradient-text font-bold">Aditya</span>
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-gray-500 text-sm"
-            >
-              © 2025 Aditya Seth. All rights reserved
-            </motion.p>
-          </div>
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    const onScroll = () => {
+      const max = el.scrollHeight - el.clientHeight
+      setScrollProgress(max > 0 ? el.scrollTop / max : 0)
+      setThumbRatio(el.scrollHeight > 0 ? el.clientHeight / el.scrollHeight : 1)
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div style={{ position: 'relative', minHeight: '100dvh' }}>
+      <div ref={scrollRef} className="hologram-interface">
+        <div className="hologram-content">
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Contact />
         </div>
-      </footer>
+      </div>
+
+      {/* Scroll progress pill */}
+      <div
+        style={{
+          position: 'fixed',
+          right: '6px',
+          top: '1rem',
+          bottom: '1rem',
+          width: '3px',
+          zIndex: 998,
+          borderRadius: '3px',
+          background: 'rgba(255,255,255,0.05)',
+          pointerEvents: 'none',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            width: '100%',
+            height: `${Math.max(thumbRatio * 100, 8)}%`,
+            top: `${scrollProgress * (100 - Math.max(thumbRatio * 100, 8))}%`,
+            borderRadius: '3px',
+            background: 'rgba(255,255,255,0.22)',
+          }}
+        />
+      </div>
     </div>
   )
 }
